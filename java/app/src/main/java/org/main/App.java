@@ -6,11 +6,8 @@ package org.main;
 public class App {
     public static void main(String[] args) {
         // Main Runner
-        String test = "abcddea";
-        String[] testFunc = StringSplit.solution(test);
-
-        for (int i = 0; i < testFunc.length; ++i) {
-            System.out.println(testFunc[i]);
-        }
+        Conversion conversion = new Conversion();
+        String testFunc = conversion.solution(14);
+        System.out.println(testFunc);
     }
 }
