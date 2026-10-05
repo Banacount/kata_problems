@@ -2,31 +2,45 @@ package org.main;
 
 /*
  * Problem_ID: 51b62bf6a9c58071c600001b
- * Status: unfinished
+ * Status: done
  */
 
 public class Conversion {
-    int[] numerals =        { 1,    5,   10,  50,  100, 500, 1000};
-    char[] roman_letters =  {'I',  'V',  'X',  'L', 'C', 'D', 'M'};
+    class Pair {
+        int num;
+        String str;
+
+        Pair (int value, String roman) {
+            this.num = value;
+            this.str = roman;
+        }
+    }
 
     public String solution(int n) {
+        Pair[] romans = {
+            new Pair(1000, "M"),
+            new Pair(900, "CM"),
+            new Pair(500, "D"),
+            new Pair(400, "CD"),
+            new Pair(100, "C"),
+            new Pair(90, "XC"),
+            new Pair(50, "L"),
+            new Pair(40, "XL"),
+            new Pair(10, "X"),
+            new Pair(9, "IX"),
+            new Pair(5, "V"),
+            new Pair(4, "IV"),
+            new Pair(1, "I"),
+        };
+
         String result = "";
 
-        for (int i = numerals.length-1; i >= 0; --i) {
-            int num_val = numerals[i];
+        for (Pair pair : romans) {
+            int cur = pair.num;
 
-            if (num_val <= n) {
-                if (n < 10 && (n == 4 || n == 9)) {
-                    result += roman_letters[0];
-                    result += roman_letters[i];
-                    n -= numerals[i]+1;
-                } else {
-                    result += roman_letters[i];
-                    n -= numerals[i];
-                }
-
-                if (n > 0) i = numerals.length-1;
-                else break;
+            while (n >= cur) {
+                result += pair.str;
+                n -= cur;
             }
         }
 

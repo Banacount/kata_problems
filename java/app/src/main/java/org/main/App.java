@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         // Main Runner
         Conversion conversion = new Conversion();
-        String testFunc = conversion.solution(14);
+        String testFunc = conversion.solution(20);
         System.out.println(testFunc);
     }
 }
