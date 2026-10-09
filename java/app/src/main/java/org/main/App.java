@@ -6,8 +6,7 @@ package org.main;
 public class App {
     public static void main(String[] args) {
         // Main Runner
-        Conversion conversion = new Conversion();
-        String testFunc = conversion.solution(20);
+        String testFunc = RgbToHex.rgb(-20, 275, 125);
         System.out.println(testFunc);
     }
 }
